@@ -1,0 +1,26 @@
+{
+  "name": "nomidea",
+  "version": "0.1.0",
+  "description": "notion of modules as interface",
+  "private": true,
+  "repository": "https://github.com/imelbox/nomidea.git",
+  "author": "Mohamed Tamsamani <mohamed@tousfacteurs.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "stop": "next stop",
+    "test": "next test"
+  },
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.1",
+    "@types/react": "^17.0.20",
+    "typescript": "^4.4.3"
+  }
+}
