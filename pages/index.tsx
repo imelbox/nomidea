@@ -1,15 +1,15 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 
-export default function IndexPage() {
+export default function IndexPage(): JSX.Element {
 	const router = useRouter();
 
 	const inputRef = React.useRef<HTMLInputElement>(null);
 
 	const handleClick = React.useCallback(() => {
 		// go to profile page base to input value
-		router.push(`/profile/${inputRef.current!.value}`);
-	}, [inputRef.current]);
+		router.push(`/profile/${inputRef.current?.value}`);
+	}, [router, inputRef]);
 
 	return (
 		<div>

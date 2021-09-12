@@ -1,6 +1,6 @@
-import NextError from 'next/error';
+import NextError, { ErrorProps } from 'next/error';
 
-function ErrorPage({ statusCode }) {
+function ErrorPage({ statusCode }: ErrorProps): JSX.Element {
 	return (
 		<NextError
 			statusCode={statusCode}

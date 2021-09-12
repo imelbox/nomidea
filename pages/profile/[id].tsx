@@ -2,8 +2,8 @@ import React from 'react';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import NextError from 'next/error';
-
-import prisma from '../../lib/prisma';
+import { Profile } from '.prisma/client';
+import prisma from '@modules/prisma';
 
 export const getServerSideProps: GetServerSideProps = async (queryContext) => {
 	const profile = await prisma.profile.findFirst({
@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (queryContext) => {
 	};
 };
 
-export default function ProfilePage({ profile }) {
+export default function ProfilePage({ profile }: { profile: Profile }): JSX.Element {
 	const router = useRouter();
 
 	if (!profile) {
