@@ -12,11 +12,15 @@
     "start": "next start",
     "stop": "next stop",
     "lint": "next lint",
-    "test": "next test"
+    "test": "next test",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^3.0.2",
     "ahooks": "^2.10.9",
     "next": "^11.1.2",
+    "prisma": "3.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },

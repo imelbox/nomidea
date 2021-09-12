@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum Role {
+  ADMIN
+  MENTOR
+  USER
+  GUEST
+}
+
+enum LinkProvider {
+  FACEBOOK
+  GOOGLE
+  LINKEDIN
+  TWITTER
+  INSTAGRAM
+  GITHUB
+}
+
+model ProfileLink {
+  id        Int          @id @default(autoincrement())
+  provider  LinkProvider
+  url       String
+  profile   Profile      @relation(fields: [profileId], references: [id])
+  profileId Int
+}
+
+model Profile {
+  id          Int           @id @default(autoincrement())
+  role        Role          @default(GUEST)
+  fullName    String
+  avatar      String
+  bio         String?
+  links       ProfileLink[]
+  preferences Json          @default("{}")
+  owner       User?         @relation(fields: [authorId], references: [id])
+  authorId    Int?
+
+  @@map(name: "profiles")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  email     String?  @unique
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  confirmed Boolean  @default(false)
+
+  profile Profile?
+
+  @@map(name: "users")
+}
