@@ -1,8 +1,11 @@
 // Header.tsx
 import React from 'react';
 import Link from 'next/link';
+import NextImage from 'next/image';
 import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/client';
+
+import AppIcon from '@assets/icon.png';
 
 const Header: React.FC = () => {
 	const router = useRouter();
@@ -10,30 +13,20 @@ const Header: React.FC = () => {
 
 	const [session, loading] = useSession();
 
+	const appIcon = (
+		<Link href="/">
+			<a className="bold" data-active={isActive('/')}>
+				<NextImage src={AppIcon} width={32} height={32} alt="NOM Idea App Icon" />
+			</a>
+		</Link>
+	);
+
 	let left = (
 		<div className="left">
-			<Link href="/">
-				<a className="bold" data-active={isActive('/')}>
-					Feed
-				</a>
-			</Link>
+			{appIcon}
 			<style jsx>{`
-				.bold {
-					font-weight: bold;
-				}
-
-				a {
-					text-decoration: none;
-					color: var(--geist-foreground);
-					display: inline-block;
-				}
-
-				.left a[data-active='true'] {
+				.left :global(a[data-active='true']) {
 					color: gray;
-				}
-
-				a + a {
-					margin-left: 1rem;
 				}
 			`}</style>
 		</div>
@@ -42,42 +35,9 @@ const Header: React.FC = () => {
 	let right = null;
 
 	if (loading) {
-		left = (
-			<div className="left">
-				<Link href="/">
-					<a className="bold" data-active={isActive('/')}>
-						Feed
-					</a>
-				</Link>
-				<style jsx>{`
-					.bold {
-						font-weight: bold;
-					}
-
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					.left a[data-active='true'] {
-						color: gray;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-				`}</style>
-			</div>
-		);
 		right = (
 			<div className="right">
 				<p>Validating session ...</p>
-				<style jsx>{`
-					.right {
-						margin-left: auto;
-					}
-				`}</style>
 			</div>
 		);
 	}
@@ -89,16 +49,6 @@ const Header: React.FC = () => {
 					<a data-active={isActive('/signup')}>Log in</a>
 				</Link>
 				<style jsx>{`
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-
 					.right {
 						margin-left: auto;
 					}
@@ -116,33 +66,12 @@ const Header: React.FC = () => {
 	if (session) {
 		left = (
 			<div className="left">
-				<Link href="/">
-					<a className="bold" data-active={isActive('/')}>
-						Feed
+				{appIcon}
+				<Link href="/users">
+					<a className="bold" data-active={isActive('/users')}>
+						Users
 					</a>
 				</Link>
-				<Link href="/drafts">
-					<a data-active={isActive('/drafts')}>My drafts</a>
-				</Link>
-				<style jsx>{`
-					.bold {
-						font-weight: bold;
-					}
-
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					.left a[data-active='true'] {
-						color: gray;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-				`}</style>
 			</div>
 		);
 		right = (
@@ -150,45 +79,14 @@ const Header: React.FC = () => {
 				<p>
 					{session.user.name} ({session.user.email})
 				</p>
-				<Link href="/create" passHref>
+				<Link href="/users/create" passHref>
 					<button>
-						<a>New post</a>
+						<a>New User</a>
 					</button>
 				</Link>
 				<button onClick={() => signOut()}>
 					<a>Log out</a>
 				</button>
-				<style jsx>{`
-					a {
-						text-decoration: none;
-						color: var(--geist-foreground);
-						display: inline-block;
-					}
-
-					p {
-						display: inline-block;
-						font-size: 13px;
-						padding-right: 1rem;
-					}
-
-					a + a {
-						margin-left: 1rem;
-					}
-
-					.right {
-						margin-left: auto;
-					}
-
-					.right a {
-						border: 1px solid var(--geist-foreground);
-						padding: 0.5rem 1rem;
-						border-radius: 3px;
-					}
-
-					button {
-						border: none;
-					}
-				`}</style>
 			</div>
 		);
 	}
@@ -198,10 +96,21 @@ const Header: React.FC = () => {
 			{left}
 			{right}
 			<style jsx>{`
+				:global(a) {
+					text-decoration: none;
+					color: var(--geist-foreground);
+					display: inline-block;
+				}
 				nav {
 					display: flex;
 					padding: 2rem;
 					align-items: center;
+					justify-content: space-between;
+				}
+				nav > :global(*) {
+					display: flex;
+					align-items: center;
+					gap: 0.5em;
 				}
 			`}</style>
 		</nav>

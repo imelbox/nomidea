@@ -11,7 +11,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "next dev -p 80 -H 127.1.1.201",
+    "dev": "next dev -p 80 -H app.test",
     "start": "next start",
     "stop": "next stop",
     "lint": "next lint",

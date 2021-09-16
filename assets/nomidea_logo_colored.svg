@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="200"
+   viewBox="0 0 512 200"
+   version="1.1"
+   id="nomidea_svg_logo"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="nomidea_logo_colored.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="inkscape_logo_info"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="1.5859375"
+     inkscape:cx="129.89163"
+     inkscape:cy="178.12808"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="logo_group"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2" />
+  <defs
+     id="defs13675" />
+  <g
+     inkscape:label="Logo Group"
+     inkscape:groupmode="layer"
+     id="logo_group">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:90.9406px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#212178;fill-opacity:1;stroke:none;stroke-width:2.27352"
+       x="11.497766"
+       y="99.204231"
+       id="nom_text"
+       transform="scale(0.80262297,1.245915)"><tspan
+         sodipodi:role="line"
+         id="tspan889"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:90.9406px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#212178;stroke-width:2.55937"
+         x="11.497766"
+         y="99.204231">NOM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:107.658px;line-height:1.25;font-family:sans-serif;fill:#212178;fill-opacity:1;stroke:none;stroke-width:2.69146"
+       x="242.04733"
+       y="123.68549"
+       id="idea_text"><tspan
+         sodipodi:role="line"
+         id="tspan4979"
+         style="fill:#212178;stroke-width:2.69146"
+         x="242.04733"
+         y="123.68549">i dea</tspan></text>
+    <path
+       id="bulb_path"
+       d="m 280.27945,155.18579 v 6.15186 c 0,4.88526 -3.61877,8.8659 -8.32311,9.58965 l -1.44778,5.60902 c -0.90444,2.89497 -3.61877,5.06621 -6.51372,5.06621 h -14.8368 c -3.25693,0 -5.97099,-2.17097 -6.51375,-5.06621 l -1.44785,-5.60902 c -4.70432,-0.72387 -8.323,-4.70439 -8.323,-9.58965 v -6.15186 c 0,-3.25685 2.53278,-5.97091 5.97085,-5.97091 h 35.6446 c 3.25684,0.36182 5.79001,2.8947 5.79001,5.97091 z m 4.70433,-25.15027 c -1.08593,6.69467 -6.87561,11.76093 -13.75122,11.76093 H 241.5589 c -6.87555,0 -12.66558,-4.88529 -13.75119,-11.76093 -1.26658,-7.78029 -4.88532,-15.01775 -10.3134,-20.6268 -9.58966,-9.95153 -14.83682,-22.978974 -15.01778,-36.549236 -0.17822,-29.854619 23.70273,-54.28106 53.19543,-54.462005 h 0.36181 c 29.8546,0 54.10017,24.064574 54.10017,53.738276 0,13.932129 -5.42812,27.502421 -15.01774,37.272965 -5.42812,5.60905 -9.04689,12.84651 -10.13245,20.6268 z m 1.62844,-28.9499 c 7.41842,-7.599329 11.76094,-18.27463 11.76094,-29.130815 0,-23.159929 -18.99841,-41.796416 -42.33928,-41.796416 h -0.36182 c -22.79802,0.178224 -41.43452,19.17927 -41.25358,42.520145 0.17823,10.67529 4.34248,20.807757 11.76086,28.588026 7.05657,7.23749 11.76091,16.82715 13.38932,26.95961 0.17822,1.26657 1.08595,1.62845 1.99032,1.62845 h 29.67365 c 1.08593,0 1.99029,-0.90443 1.99029,-1.80879 1.62844,-10.13249 6.33285,-19.54118 13.38934,-26.95965 z"
+       style="fill:#ff7f2a;" />
+  </g>
+</svg>
