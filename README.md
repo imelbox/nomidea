@@ -12,6 +12,7 @@
 - [ ] Complete this Documnet of readme by:
   - [ ] explain the idea of project.
   - [ ] the workspace development.
+- [ ] explain how use prisma commands and Database.
 - [ ] Add FAQ for common problem/usages
 
 
