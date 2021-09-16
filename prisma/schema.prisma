@@ -1,37 +1,18 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
-enum Role {
-  ADMIN
-  MENTOR
-  USER
-  GUEST
-}
-
-enum LinkProvider {
-  FACEBOOK
-  GOOGLE
-  LINKEDIN
-  TWITTER
-  INSTAGRAM
-  GITHUB
-}
-
 model ProfileLink {
   id        Int          @id @default(autoincrement())
   provider  LinkProvider
   url       String
-  profile   Profile      @relation(fields: [profileId], references: [id])
   profileId Int
+  profile   Profile      @relation(fields: [profileId], references: [id])
 }
 
 model Profile {
@@ -40,27 +21,26 @@ model Profile {
   fullName    String
   avatar      String
   bio         String?
-  links       ProfileLink[]
   preferences Json          @default("{}")
-  owner       User?         @relation(fields: [authorId], references: [id])
-  authorId    Int?
+  owner       User?         @relation(fields: [ownerId], references: [id])
+  ownerId     Int?
+  links       ProfileLink[]
 
-  @@map(name: "profiles")
+  @@map("profiles")
 }
 
 model User {
-
   id            Int       @id @default(autoincrement())
   name          String?
   email         String?   @unique
   emailVerified DateTime? @map(name: "email_verified")
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
   confirmed     Boolean   @default(false)
   profile       Profile?
 
-  @@map(name: "users")
+  @@map("users")
 }
 
 model Account {
@@ -92,4 +72,21 @@ model Session {
   updatedAt    DateTime @default(now()) @map(name: "updated_at")
 
   @@map(name: "sessions")
+}
+
+enum Role {
+  SUPERADMIN
+  ADMIN
+  MENTOR
+  USER
+  GUEST
+}
+
+enum LinkProvider {
+  FACEBOOK
+  GOOGLE
+  LINKEDIN
+  TWITTER
+  INSTAGRAM
+  GITHUB
 }
