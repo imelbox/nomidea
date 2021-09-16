@@ -1,11 +1,20 @@
 import { AppProps } from 'next/app';
+import { Provider as NextAuthProvider } from 'next-auth/client';
 import Layout from '@components/Layout';
 
-const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+type GeneralPageProps = Partial<{
+	layout: React.FunctionComponent | React.ComponentClass;
+}>;
+
+const App = ({ Component, pageProps }: AppProps<GeneralPageProps>): JSX.Element => {
+	const PageLayout = Component.defaultProps?.layout || Layout;
+
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<NextAuthProvider session={pageProps.session}>
+			<PageLayout>
+				<Component {...pageProps} />
+			</PageLayout>
+		</NextAuthProvider>
 	);
 };
 
