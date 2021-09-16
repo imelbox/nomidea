@@ -3,7 +3,11 @@ import Header from './Header';
 
 import appIcon from '@assets/icon.png';
 
-export default function Layout(props): JSX.Element {
+type LayoutProps = {
+	title?: string;
+};
+
+const Layout: React.FC<LayoutProps> = (props) => {
 	return (
 		<>
 			<NextHead>
@@ -25,4 +29,6 @@ export default function Layout(props): JSX.Element {
 			</div>
 		</>
 	);
-}
+};
+
+export default Layout;
